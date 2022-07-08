@@ -18,7 +18,7 @@ else
 	read -p "Enter your 6 digit token : " mfa_token
 
 	authenticationOutput=$(aws sts get-session-token --profile "$original_profile" --serial-number "${mfa_serial_number}" \
-	--token-code ${mfa_token} --duration-seconds 1600 --output text)
+	--token-code ${mfa_token} --duration-seconds 129500 --output text)
 
 	if [ -z "$authenticationOutput" ];then
 
@@ -35,6 +35,7 @@ else
 		aws configure set aws_session_token "$aws_session_token" --profile "$mfa_profile"
 		aws configure set region ap-south-1 --profile "$mfa_profile" 
 		
+		echo "Profile has been successfully updated. "
 		echo "You can now use ${mfa_profile} profile."
 
 	fi
