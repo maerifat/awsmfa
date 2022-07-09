@@ -36,7 +36,7 @@ else
 		aws configure set region ap-south-1 --profile "$mfa_profile" 
 		
 		echo "Profile has been successfully updated. "
-		echo "You can now use ${mfa_profile} profile."
+		echo "You can now use ${mfa_profile} profile for next 36 hours."
 
 	fi
 fi
